@@ -1,8 +1,8 @@
 import React from 'react';
 
-const VuokraTavarat = ({ Kuva, Malli, Hinta5h50km, Hinta1vrk100km, Hinta1vko1000km, Tilavuus, TavaratilanPituus, TavaratilanLeveys, TavaratilanKorkeus, Muuta }) => {
+const Data_base = ({ Kuva, Malli, Hinta5h50km, Hinta1vrk100km, Hinta1vko1000km, Tilavuus, TavaratilanPituus, TavaratilanLeveys, TavaratilanKorkeus, Muuta }) => {
     return (
-        <div className='max-w-xs mx-4 my-4 overflow-hidden duration-200 ease-in rounded shadow-lg cursor-pointer hover:scale-110'>
+        <div className='max-w-xs mx-4 my-4 overflow-hidden duration-200 ease-in rounded shadow-lg cursor-pointer hover:scale-110 bg-slate-300 rounded-lg'>
             <img src={Kuva} alt={Malli} />
             <p className="text-base text-gray-700">
                     <strong>5h/50km:</strong> {Hinta5h50km}<br />
@@ -18,4 +18,4 @@ const VuokraTavarat = ({ Kuva, Malli, Hinta5h50km, Hinta1vrk100km, Hinta1vko1000
     );
 };
 
-export default VuokraTavarat;
+export default Data_base;
