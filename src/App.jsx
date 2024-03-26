@@ -3,6 +3,8 @@ import NavBar from './Componentit/NavBar'
 import './index.css';
 import Main from './Componentit/Main';
 import Vuokra from './Componentit/Vuokra';
+import Mail from './Componentit/Mail';
+
 
 function App() {
 
@@ -11,6 +13,7 @@ function App() {
     <NavBar />
     <Main />
     <Vuokra />
+    <Mail />
     </>
   )
 }
