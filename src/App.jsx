@@ -5,8 +5,8 @@ import Main from './Componentit/Main';
 import Vuokra from './Componentit/Vuokra';
 import Mail from './Componentit/Mail';
 import Footer from './Componentit/Footer';
-import AboutSite from './Componentit/AboutSite';
 import Map from './Componentit/Map';
+import Calendar from './Componentit/calender';
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
     <NavBar />
     <Main />
     <Vuokra />
+    <Calendar />
     <Mail />
     <Map/>
-    <AboutSite />
     <Footer />
     </>
   )

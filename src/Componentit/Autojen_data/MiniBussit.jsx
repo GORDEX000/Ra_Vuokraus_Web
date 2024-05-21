@@ -1,6 +1,11 @@
 import React from 'react';
 import Data_base from './Data_base';
 
+
+
+
+
+
 const data = [
     {
         Kuva: 'https://www.ra-vuokraus.com/site/assets/files/1139/20201123_114527.460x460.jpg',
