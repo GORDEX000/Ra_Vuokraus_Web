@@ -13,17 +13,17 @@ const Calendar = () => {
   console.log(selectedDate);
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="w-120 h-120">
-        <div className="flex justify-between">
+    <div className="flex flex-col items-center justify-center">
+      <div className="w-full max-w-3xl p-3 bg-white shadow-lg rounded-lg ml-16"> {/* Increased margin-left to 12 */}
+        <div className="flex justify-between items-center mb-4">
           <div className="font-semibold text-xl">
             {arrayOfMonths[today.month()]}, {today.year()}
           </div>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center gap-2">
             <GrPrevious
-              className="text-xl cursor-pointer"
+              className="text-2xl cursor-pointer"
               onClick={() => {
-                setToday(today.month(today.month() - 1));
+                setToday(today.subtract(1, 'month'));
               }}
             />
             <span
@@ -35,43 +35,32 @@ const Calendar = () => {
               Today
             </span>
             <GrNext
-              className="text-xl cursor-pointer"
+              className="text-2xl cursor-pointer"
               onClick={() => {
-                setToday(today.month(today.month() + 1));
+                setToday(today.add(1, 'month'));
               }}
             />
           </div>
         </div>
-        <div className="h-16 grid grid-cols-7 text-lg text-gray-500 font-semibold">
+        <div className="grid grid-cols-7 text-center text-lg text-gray-500 font-semibold">
           {arrayOfDays.map((day, index) => (
-            <div
-              key={index}
-              className="h-16 w-full flex items-center justify-center"
-            >
+            <div key={index} className="py-2">
               {day}
             </div>
           ))}
         </div>
-        <div className="grid grid-cols-7">
+        <div className="grid grid-cols-7 gap-2">
           {generateDates(today.month(), today.year()).map((dateObj, index) => {
-            const { date, currentMonth, today } = dateObj;
+            const { date, currentMonth, today: isToday } = dateObj;
 
             return (
-              <div
-                key={index}
-                className="h-16 w-full flex items-center justify-center border-t"
-              >
+              <div key={index} className="h-16 w-full flex items-center justify-center border-t">
                 <span
                   className={cn(
                     currentMonth ? '' : 'text-gray-400',
-                    today
-                      ? 'bg-red-500 text-white hover:bg-red-600 hover:text-white'
-                      : '',
-                    selectedDate.toDate().toDateString() ===
-                      date.toDate().toDateString()
-                      ? 'bg-slate-800 text-white/90'
-                      : '',
-                    'w-12 h-12 flex items-center justify-center rounded-full hover:bg-slate-900 hover:text-white transition-all cursor-pointer'
+                    isToday ? 'bg-red-500 text-white hover:bg-red-600' : '',
+                    selectedDate.isSame(date, 'day') ? 'bg-slate-800 text-white' : '',
+                    'w-12 h-12 flex items-center justify-center rounded-full cursor-pointer transition-all'
                   )}
                   onClick={() => {
                     setSelectedDate(date);
@@ -84,7 +73,7 @@ const Calendar = () => {
           })}
         </div>
       </div>
-      <div className="mt-8 text-xl">{selectedDate.toDate().toDateString()}</div>
+      <div className="mt-4 text-xl">{selectedDate.format('dddd, MMMM D, YYYY')}</div>
     </div>
   );
 };

@@ -9,15 +9,15 @@ const Main = () => {
             <div className='absolute inset-0 flex justify-center items-center bg-white/50'>
                 <div className='text-center'>
                     <h1 className='sm:text-5xl text-4xl font-bold text-gray-800'>Ra Vuokraus</h1>
-                    <h2 className='flex sm:text-3xl text-2xl pt-4 text-gray-800'>
-                        Paras{' '}
+                    <h2 className='flex justify-center items-center sm:text-3xl text-2xl pt-4 text-gray-800'>
+                    {' '}
                         <TypeAnimation
                             sequence={[
-                                'Vuokraus',
+                                'Vuokra',
                                 1000,
-                                'hullu',
+                                'Nopea',
                                 1000,
-                                'crazy',
+                                'Helppo',
                                 1000,
                             ]}
                             wrapper="div"
